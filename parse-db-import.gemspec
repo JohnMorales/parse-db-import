@@ -10,7 +10,7 @@ Gem::Specification.new do |spec|
   spec.email         = ["jmorales@gmail.com"]
   spec.summary       = %q{A tool to import Parse database exports to activerecord}
   spec.description   = %q{This tool allows you to import your json files exported from Parse to any database supported by activerecord.}
-  spec.homepage      = ""
+  spec.homepage      = "https://github.com/JohnMorales/parse-db-import"
   spec.license       = "MIT"
 
   spec.files         = `git ls-files -z`.split("\x0")
@@ -19,10 +19,10 @@ Gem::Specification.new do |spec|
   spec.require_paths = ["lib"]
 
   spec.add_development_dependency "bundler", "~> 1.6"
-  spec.add_development_dependency "rake"
-  spec.add_dependency "activerecord"
-  spec.add_dependency "commander"
-  spec.add_dependency "pg"
-  spec.add_development_dependency "pry"
-  spec.add_development_dependency "pry-byebug"
+  spec.add_development_dependency "rake", "~> 10.1"
+  spec.add_dependency "activerecord", "~> 4.1"
+  spec.add_dependency "commander", "~> 4.2"
+  spec.add_dependency "pg", "~> 0.17"
+  spec.add_development_dependency "pry", "~> 0.10"
+  spec.add_development_dependency "pry-byebug", "~> 1.3"
 end
