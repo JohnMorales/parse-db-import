@@ -8,7 +8,7 @@ module Parse
         #Convert arrays to strings, since we're not supporting them yet.
         record.each { |k, v| record[k] = v.join(', ') if v.is_a? Array }
         #Convert epoch to datetime
-        record.each { |k, v| record[k] =  DateTime.strptime(v.to_s, "%Q") if k =~ /date$/ }
+        record.each { |k, v| record[k] =  DateTime.strptime(v.to_s, "%Q") if k =~ /(date|At)$/ }
       end
 
       def klass_from_file(file)

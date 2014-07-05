@@ -49,10 +49,14 @@ module Parse
       end
 
       def get_column_type(val, column)
-        return :timestamp if column =~ /date$/
+        return :timestamp if column =~ /(date|At)$/
         case val
           when String
             val.length
+          when TrueClass, FalseClass
+            :boolean
+          when Float
+            :float
           when Fixnum
             :integer
         end
