@@ -1,4 +1,4 @@
-# Parse-Db-Import
+# parse-db-import
 
 This solution is if you need to move away from Parse and build your own backend. This tool allows you to quickly import data exported from Parse into a database supported by active record. Currently it expects the records to be pre-flattened by [parse-migrator](https://github.com/JohnMorales/parse-migrator)
 
@@ -16,6 +16,12 @@ See also
 
 ## Usage
 
+It's assumed that the database will exist so create the database if that's not the case 
+
+`createdb sampledb`
+
+then 
+
 ```sh
    $  bundle exec parse-db-import --path [path] --dbname [database]
 ```
@@ -28,6 +34,7 @@ See also
  --dbpassword [password] #(optional, will use current account)
  --host [host]  #(optional, will use 'localhost')
 ```
+
 
 ## Contributing
 

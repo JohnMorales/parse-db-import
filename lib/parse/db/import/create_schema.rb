@@ -1,4 +1,6 @@
 require "parse/db/import/utils"
+require "parse/db/import/activerecord_helpers"
+
 module Parse
   module Db
     class Import
@@ -10,10 +12,13 @@ module Parse
           process_parse_file(file) do |record|
             columns = get_missing_columns(klass, record.keys)
             unless columns.empty?
-              columns.each { |k| missing_columns[k] = 0}
+              columns.each do |k|
+                missing_columns[k] = get_column_type(record[k], k)
+              end
             end
             missing_columns.each do |k, v|
-              len = record[k].to_s.length
+              next unless v.is_a? Fixnum
+              len = record[k].to_s.length 
               missing_columns[k] = len if v < len
             end
           end

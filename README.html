@@ -121,7 +121,7 @@ body{font-size:16px;}
   h2, h3 { page-break-after: avoid; }
 }
 </style><title>README</title></head><body><h1 id="parse-db-import">Parse-Db-Import</h1>
-<p>This solution is if you need to move away from Parse and build your own backend. This tool allows you to quickly import data exported from Parse into a database supported by active record. Currently it expects the records to be pre-flattened by <a href="#parse-migrator">parse-migrator</a></p>
+<p>This solution is if you need to move away from Parse and build your own backend. This tool allows you to quickly import data exported from Parse into a database supported by active record. Currently it expects the records to be pre-flattened by <a href="https://github.com/JohnMorales/parse-migrator">parse-migrator</a></p>
 <p>See also</p>
 <ul>
 <li><a href="https://github.com/JohnMorales/parse-migrator">parse-migrator</a></li>
@@ -132,6 +132,9 @@ body{font-size:16px;}
 </code></pre>
 
 <h2 id="usage">Usage</h2>
+<p>It's assumed that the database will exist so create the database if that's not the case </p>
+<p><code>createdb sampledb</code></p>
+<p>then </p>
 <pre><code class="sh">   $  bundle exec parse-db-import --path [path] --dbname [database]
 </code></pre>
 

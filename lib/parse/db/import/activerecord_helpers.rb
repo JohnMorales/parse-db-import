@@ -48,6 +48,15 @@ module Parse
         missing_columns
       end
 
+      def get_column_type(val, column)
+        return :timestamp if column =~ /date$/
+        case val
+          when String
+            val.length
+          when Fixnum
+            :integer
+        end
+      end
 
       def create_missing_columns(klass, missing_columns)
         return if missing_columns.length == 0
@@ -55,7 +64,13 @@ module Parse
         #Create any columns that are missing.
         dbconnection = klass.connection
         dbconnection.change_table(klass.table_name) do |t|
-          missing_columns.each { |k,v| t.column k, :string, { limit: v } }
+          missing_columns.each do |k,v|
+            if v.is_a? Fixnum
+              t.column k, :string, { limit: v }
+            else
+              t.column k, v
+            end
+          end
         end
         klass.reset_column_information
         klass.inheritance_column = "ar_type"

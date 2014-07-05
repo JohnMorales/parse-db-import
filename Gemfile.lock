@@ -2,9 +2,9 @@ PATH
   remote: .
   specs:
     parse-db-import (0.0.1)
-      activerecord
-      commander
-      pg
+      activerecord (~> 4.1)
+      commander (~> 4.2)
+      pg (~> 0.17)
 
 GEM
   remote: https://rubygems.org/
@@ -57,6 +57,6 @@ PLATFORMS
 DEPENDENCIES
   bundler (~> 1.6)
   parse-db-import!
-  pry
-  pry-byebug
-  rake
+  pry (~> 0.10)
+  pry-byebug (~> 1.3)
+  rake (~> 10.1)
