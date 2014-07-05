@@ -8,8 +8,8 @@ Gem::Specification.new do |spec|
   spec.version       = Parse::Db::Import::VERSION
   spec.authors       = ["JohnMorales"]
   spec.email         = ["jmorales@gmail.com"]
-  spec.summary       = %q{TODO: Write a short summary. Required.}
-  spec.description   = %q{TODO: Write a longer description. Optional.}
+  spec.summary       = %q{A tool to import parse database exports to activerecord}
+  spec.description   = %q{This tool allows you to import your json files exported from parse to any database supported by activerecord.}
   spec.homepage      = ""
   spec.license       = "MIT"
 
@@ -20,7 +20,9 @@ Gem::Specification.new do |spec|
 
   spec.add_development_dependency "bundler", "~> 1.6"
   spec.add_development_dependency "rake"
-  spec.add_development_dependency "activerecord"
-  spec.add_development_dependency "commander"
-  spec.add_development_dependency "pg"
+  spec.add_dependency "activerecord"
+  spec.add_dependency "commander"
+  spec.add_dependency "pg"
+  spec.add_development_dependency "pry"
+  spec.add_development_dependency "pry-byebug"
 end
