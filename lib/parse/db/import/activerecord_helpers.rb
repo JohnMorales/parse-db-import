@@ -1,4 +1,5 @@
 require 'active_record'
+require "parse/db/import/utils"
 
 module Parse
   module Db
@@ -49,7 +50,7 @@ module Parse
       end
 
       def get_column_type(val, column)
-        return :timestamp if column =~ /(date|At)$/
+        return :timestamp if is_date_by_naming_convention(column)
         case val
           when String
             val.length
