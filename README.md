@@ -1,24 +1,33 @@
-# Parse::Db::Import
+# Parse-Db-Import
 
-TODO: Write a gem description
+This solution is if you need to move away from Parse and build your own backend. This tool allows you to quickly import data exported from Parse into a database supported by active record. Currently it expects the records to be pre-flattened by [parse-migrator](https://github.com/JohnMorales/parse-migrator)
+
+See also
+
+  - [parse-migrator](https://github.com/JohnMorales/parse-migrator)
+  - [rack-scaffold](https://github.com/mattt/rack-scaffold)
 
 ## Installation
 
-Add this line to your application's Gemfile:
-
-    gem 'parse-db-import'
-
-And then execute:
-
-    $ bundle
-
-Or install it yourself as:
-
+```sh
     $ gem install parse-db-import
+```
+
 
 ## Usage
 
-TODO: Write usage instructions here
+```sh
+   $  bundle exec parse-db-import --path [path] --dbname [database]
+```
+
+### Other options
+
+```ruby
+ --adapter [postgresql]  #(mysql, mysql2, postgresql or sqlite3 defaults to postgresql)
+ --dbuser [user]  #(optional, will use current account)
+ --dbpassword [password] #(optional, will use current account)
+ --host [host]  #(optional, will use 'localhost')
+```
 
 ## Contributing
 
