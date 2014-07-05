@@ -2,7 +2,7 @@ require "parse/db/import/utils"
 module Parse
   module Db
     class Import
-      def create_schema
+      def create_schema(options)
         Dir["#{options.path}/#{options.entity}/data.json"].each do |file|
           missing_columns = {}
           klass = klass_from_file(file)

@@ -8,8 +8,8 @@ Gem::Specification.new do |spec|
   spec.version       = Parse::Db::Import::VERSION
   spec.authors       = ["JohnMorales"]
   spec.email         = ["jmorales@gmail.com"]
-  spec.summary       = %q{A tool to import parse database exports to activerecord}
-  spec.description   = %q{This tool allows you to import your json files exported from parse to any database supported by activerecord.}
+  spec.summary       = %q{A tool to import Parse database exports to activerecord}
+  spec.description   = %q{This tool allows you to import your json files exported from Parse to any database supported by activerecord.}
   spec.homepage      = ""
   spec.license       = "MIT"
 

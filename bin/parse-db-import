@@ -1,6 +1,30 @@
 #!/usr/bin/env ruby
 
+require 'commander'
 require 'rubygems'
 require "parse/db/import"
+require "parse/db/import/version"
 
-Parse::Db::Import.new.run if $0 == __FILE__
+Commander.configure do
+  program :version, Parse::Db::Import::VERSION
+  program :description, 'Simple app to import parse db'
+  default_command :import
+
+  command :import do |c|
+    c.syntax = 'parse-db-import import [options]'
+    c.summary = ''
+    c.description = ''
+    c.example 'description', 'command example'
+    c.option '--path String', String, 'The location of where the json files exist'
+    c.option '--entity String', String, 'The entity to load, all if missing'
+    c.option '--dbname String', String, 'db name'
+    c.option '--adapter String', String, 'mysql, mysql2, postgresql or sqlite3'
+    c.option '--dbuser String', String, 'db user name'
+    c.option '--dbpassword String', String, 'db password'
+    c.option '--host String', String, 'db password'
+    c.action do |args, options|
+      options.path = ask("Path? ") unless options.path
+      Parse::Db::Import.new.run(options)
+    end
+  end
+end

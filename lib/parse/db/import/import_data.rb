@@ -3,7 +3,7 @@ require "parse/db/import/utils"
 module Parse
   module Db
     class Import
-      def import_data
+      def import_data(options)
         Dir["#{options.path}/#{options.entity}/data.json"].each do |file|
           klass = klass_from_file(file)
           puts "Importing....#{klass.name}"

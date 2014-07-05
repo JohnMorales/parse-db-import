@@ -1,3 +1,5 @@
+require 'active_record'
+
 module Parse
   module Db
     class Import
